@@ -201,3 +201,36 @@ const array = [1, 2, 3, 4, 5];
 array.reverse();
 console.log(array); // Output: [5, 4, 3, 2, 1]
 */
+
+
+//--------------------------------------------
+/*Write a function that takes in two arrays of numbers and returns a new array containing the sum of elements at the same index from both arrays.
+
+Create a function called sumOfTwo that accepts two parameters (two arrays of numbers).
+Inside the function, add elements at the same index from both arrays to form a new array containing the sums.
+Return the new array with the sums of elements at corresponding indices.
+For example:
+
+javascript
+Copy code
+sumOfTwo([1, 2, 3], [4, 5, 6]); // Expected output: [5, 7, 9]
+sumOfTwo([10, 20, 30, 40], [5, 10, 15, 20]); // Expected output: [15, 30, 45, 60]
+Try implementing this function to add corresponding elements from two arrays and create a new array containing the sums. 
+This task involves iterating through arrays and performing addition at corresponding indices to generate the resultant array. */
+
+const sumOfTwo = (arr, arr2) => {
+    let newArr = [];
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr2.length; j++) {
+            let sum = arr[i] + arr2[j];
+            newArr.push(sum);
+        } 
+    }
+    return newArr;
+}
+
+console.log(sumOfTwo([1, 2, 3], [4, 5, 6]));
+
+
+
+
