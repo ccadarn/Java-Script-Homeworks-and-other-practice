@@ -11,7 +11,7 @@ const reverseArr = (arr) => {
 }
 
 
-console.log(reverseArr([1, 2, 3, 4, 'cat', 'dog', 16]))
+//console.log(reverseArr([1, 2, 3, 4, 'cat', 'dog', 16]))
 
 
 //-----------------------------------------------------------------------------------------------------------------------
@@ -26,7 +26,7 @@ const fac = (n) => {
     return sum
 }
 
-console.log(fac(3));
+//console.log(fac(3));
 
 
 //------------------------------------------------------------------------------------------------------------------------------
@@ -53,11 +53,11 @@ const palindromeCheck = (word) => {
     }
 };
 
-console.log(palindromeCheck('fire'));
-console.log(palindromeCheck('Madam'));
-console.log(palindromeCheck('madam'));
-console.log(palindromeCheck('12321'));
-console.log(palindromeCheck('Able was I ere I saw Elba'));
+//console.log(palindromeCheck('fire'));
+//console.log(palindromeCheck('Madam'));
+//console.log(palindromeCheck('madam'));
+//console.log(palindromeCheck('12321'));
+//console.log(palindromeCheck('Able was I ere I saw Elba'));
 
 //--------------------------------------------------------------------------------------------
 //Fibonacci Sequence: Write a function to generate the Fibonacci sequence up to a specified number of terms. 
@@ -84,9 +84,9 @@ const prime = (num) => {
 
 
 
-console.log(prime(4));
-console.log(prime(7));
-console.log(prime(1));
+//console.log(prime(4));
+//console.log(prime(7));
+//console.log(prime(1));
 
 
 //=-------------------------
@@ -113,8 +113,8 @@ const timer = (arr) => {
     }
 };
 
-timer([1, 2, 3, 4, 5, 6, 7, 8]); // Logs the error message to the console
-timer([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]); // Executes the timer function
+//timer([1, 2, 3, 4, 5, 6, 7, 8]); // Logs the error message to the console
+//timer([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]); // Executes the timer function
 
 
 /*Create a function called countVowels that takes a string as an argument and counts the number of vowels (a, e, i, o, u - both lowercase and uppercase)
@@ -144,10 +144,10 @@ const countVowels = (string) => {
 }
 
 
- console.log(countVowels("The quick brown fox jumps over the lazy dog."));
- console.log(countVowels("Fly thy cryptic glyphs."));
- console.log(countVowels("Gymnymphs fly crypts."));
- console.log(countVowels("Hello! How are you?"));
+ //console.log(countVowels("The quick brown fox jumps over the lazy dog."));
+ //console.log(countVowels("Fly thy cryptic glyphs."));
+ //console.log(countVowels("Gymnymphs fly crypts."));
+ //console.log(countVowels("Hello! How are you?"));
 
 
 
@@ -169,10 +169,10 @@ const countVowels = (string) => {
     }
 };
 
-console.log(countVowels2("The quick brown fox jumps over the lazy dog."));
-console.log(countVowels2("Fly thy cryptic glyphs."));
-console.log(countVowels2("Gymnymphs fly crypts."));
-console.log(countVowels("Hello! How are you?"));
+//console.log(countVowels2("The quick brown fox jumps over the lazy dog."));
+//console.log(countVowels2("Fly thy cryptic glyphs."));
+//console.log(countVowels2("Gymnymphs fly crypts."));
+//console.log(countVowels("Hello! How are you?"));
 
 // alternative 2 ))
 const countVowels3 = (string) => {
@@ -192,9 +192,9 @@ const countVowels3 = (string) => {
     }
 };
 
-console.log(countVowels3("The quick brown fox jumps over the lazy dog."));
-console.log(countVowels3("Fly thy cryptic glyphs."));
-console.log(countVowels3("Gymnymphs fly crypts."));
+//console.log(countVowels3("The quick brown fox jumps over the lazy dog."));
+//console.log(countVowels3("Fly thy cryptic glyphs."));
+//console.log(countVowels3("Gymnymphs fly crypts."));
 
 /* Write a JavaScript program that takes a number n (where n is a positive integer) as input and generates a multiplication table from 1 to n using nested loops. 
 For example, if the user inputs 5, the output should be:
@@ -236,5 +236,63 @@ const mtable = (n) => {
     }
 };
 
-console.log(mtable(5));
-console.log(mtable(1));
+//console.log(mtable(5));
+//console.log(mtable(1));
+
+/* Create a function that takes a number as an argument and uses a for loop to print a multiplication table for that number. 
+The table should display the multiplication of the number from 1 to 10.*/
+
+//---------------WRONG ( -------------------
+/*const multTable = (num) => {
+    for (let i = 1; i <= 10; i++) {
+        answ = i*num;
+        console.log(`${i} x ${num} = ${answ}`);
+    }
+    
+}
+
+console.log(multTable(5))*/
+
+//------------CORRECT----------------
+const multTable = (num) => {
+    let table = ''; // Initialize an empty string to store the table
+    for (let i = 1; i <= 10; i++) {
+        let result = i * num;
+        table += `${i} x ${num} = ${result}\n`; // Append each line to the table string
+    }
+    return table; // Return the generated multiplication table string
+}
+
+//console.log(multTable(5)); // Output the multiplication table for 5
+
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+/*Create a function that takes an array of numbers as an argument and uses a for loop to calculate the sum of all the positive numbers in the array. The function should return the total sum.
+
+For instance:
+
+For the input array [3, -2, 7, -1, 5], the function should return 15 (summing up 3, 7, and 5).
+For the input array [-1, -5, -10, 2], the function should return 2 (considering only the positive number, 2).
+This exercise will give you the chance to practice iterating through arrays with for loops and performing calculations based on certain conditions.*/
+
+//--------- WAS CORRECT ON THE FIRST TRY! ----------------------------------------
+const posSum = (arr) => {
+    let sum = 0;
+    if (arr.length === 0) {
+        return `Array is empty, input a value`
+    }
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > 0) {
+            sum += arr[i];
+        }
+    }
+    if (sum === 0) {
+        return `There are no possitive numbers in your array`
+    } else
+    return sum;
+}
+
+//console.log(posSum([3, -2, 7, -1, 5]))
+//console.log(posSum([-1, -5, -10, 2]))
+//console.log(posSum([-1, -5, -10, -2]))
+//console.log(posSum([]))
+
