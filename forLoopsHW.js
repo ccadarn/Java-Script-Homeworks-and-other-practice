@@ -296,3 +296,89 @@ const posSum = (arr) => {
 //console.log(posSum([-1, -5, -10, -2]))
 //console.log(posSum([]))
 
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+/* Absolutely! Here's a task to practice while loops:
+
+Write a function that takes a number as an argument and uses a while loop to find the factorial of that number. T
+The factorial of a non-negative integer n is the product of all positive integers less than or equal to n. For example:
+
+5×4×3×2×1=120.
+The factorial of 0 is defined to be 1
+
+Create a function named calculateFactorial that uses a while loop to calculate the factorial of the given number. 
+The function should return the factorial.
+
+This exercise will help you practice using while loops to perform iterative calculations based on a specific condition.*/
+
+const calculateFactorial = (num) => {
+    let result = 1
+    let i = 1
+    while (i <= num) {
+        result *= i
+        i++
+    }
+    return result
+}
+
+//console.log(calculateFactorial(5))
+
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+/*Write a function that takes a positive integer as an argument and calculates the sum of its digits. For example:
+
+For the input number 123, the function should return 6 (as the sum of 1 + 2 + 3).
+For the input number 4567, the function should return 22 (as the sum of 4 + 5 + 6 + 7).
+Create a function named sumOfDigits that uses a while loop to calculate and return the sum of the digits of the given number.*/
+
+//-------------Wrong----------- 
+const sumOfDigits = (num) => {
+    let result = 0;
+    for (let i = 0; i <= num.length; i++) {
+        result += num[i];
+    }
+    return result
+}
+
+//console.log(sumOfDigits(123))
+
+//--------------CORRECT--------------
+const sumOfDigits2 = (num) => {
+    let result = 0;
+    const numString = num.toString(); // Convert the number to a string
+    for (let i = 0; i < numString.length; i++) { // Use numString.length to iterate through the string
+        result += parseInt(numString[i]); // Convert each digit back to a number and add it to the result
+    }
+    return result;
+};
+
+//console.log(sumOfDigits(123)); // Output the sum of digits for the number 123
+
+const sumOfDigits3 = (num) => {
+    let sum = 0;
+    const numString = num.toString();
+    let i = 0; // Initialize the loop control variable
+
+    while (i < numString.length) { // Loop through each character of the string
+        sum += parseInt(numString[i]); // Parse each character to a number and add it to sum
+        i++; // Increment the loop control variable
+    }
+
+    return sum;
+};
+
+
+//console.log(sumOfDigits3(123)); // Output the sum of digits for the number 123
+
+const numbers = [1, 2, 3, 2, 4, 2, 5, 1, 3];
+
+const countOccurrences = numbers.reduce((countArr, number) => {
+  const index = countArr.findIndex(item => item[0] === number);
+  if (index !== -1) {
+    countArr[index][1]++;
+  } else {
+    countArr.push([number, 1]);
+  }
+  return countArr;
+}, []);
+
+console.log(countOccurrences);
+
