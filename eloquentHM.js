@@ -50,7 +50,7 @@ for (let i = 1; i <= 100; i++) {
 //-----------------------------------------
 
 //Task 3 - Chess board
-let size = 8;
+/*let size = 8;
 let grid = '';
 
 for (let i = 1; i <= size * size; i++) {
@@ -64,13 +64,29 @@ for (let i = 1; i <= size * size; i++) {
 }
 
 console.log(grid);
+/*
 
 /*
 Results:
-1st stask made several minor mistakes
+1st task made several minor mistakes
 2nd task was ruined by bild in AI autocompletion in Visual studio - it just provided a solution at the very start (
 3rd task was solved but I am lasking inner loop practice and understanding, was on the right track but was not able to solve it in the end (
 
 But it was refreshing )
 will continue...
 */
+
+for (let i = 1; i <= 10; i++) {
+    let row = '';
+    for (let j = 1; j <= 10; j++) {
+        row += `${i * j}\t`; // Calculate and concatenate each multiplication result
+    }
+    console.log(row); // Output each row of the multiplication table
+}
+
+
+let table = '';
+for (let i = 1; i <= 10; i++) {
+    table += `${i}\t${i * 2}\t${i * 3}\t${i * 4}\t${i * 5}\t${i * 6}\t${i * 7}\t${i * 8}\t${i * 9}\t${i * 10}\n`;
+}
+console.log(table);
