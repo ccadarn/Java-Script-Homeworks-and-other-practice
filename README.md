@@ -1,5 +1,6 @@
 # Welcome to My Coding Journey!
 
+## Update 0  0.2023
 This serves as my training ground, where I periodically upload my homework as I continue to learn and progress in whichever direction I end up pursuing.
 
 I decided to delve into coding in 2023 through **Codecademy**, and so far, the process has been satisfying with its inevitable highs and lows. I've come to the realization that knowledge without practical application is a futile endeavor.
