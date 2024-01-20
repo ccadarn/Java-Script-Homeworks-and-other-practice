@@ -16,3 +16,6 @@ Continuing to study using Codecademy; right now, I need to wrap my head around *
 
 ## Update 3 01.2024
 Discovered the concept of __closure__ in JavaScript and realized that despite my extensive learning in JavaScript, I still struggled to comprehend it. This challenge became apparent when attempting to solve LeetCode problems, where closure seemed to be a recurring theme. However, it's never too late to grasp new concepts. The latest update incorporates some hands-on practice with closure. Additionally, I've made the decision to segment my tasks, uploading each homework concept separately for better clarity.
+
+## Update 4 01.2024
+New update includes tasks that were assigned on **Codewars**; this platform is excellent for honing coding skills, not limited to just JavaScript. Honestly, I now recognize a definite improvement in my coding abilities. A few months ago, I wouldn't have known where to start. Despite the mistakes I __still__ make while crafting solutions, at least I am not entirely lost, as I was in the beginning ^^
