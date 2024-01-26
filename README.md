@@ -10,7 +10,7 @@ Hence, I've employed AI to generate homework assignments as a means of reinforci
 To be honest, the first week of homework has provided me with a much deeper understanding of JavaScript than I gained in the last six months. Despite having grasped the basics through Codecademy, the lack of practical application made it challenging to retain all that knowledge.
 
 ## Update 1 01.2024
-Currently reading *[EloquentJS](https://eloquentjavascript.net/)**; at the end of the chapter, it has some tasks to practice JS, so the latest update will contain a new file named __eloquentHM.js__.
+Currently reading **[EloquentJS](https://eloquentjavascript.net/)**; at the end of the chapter, it has some tasks to practice JS, so the latest update will contain a new file named __eloquentHM.js__.
 
 ## Update 2 01.2024
 Continuing to study using Codecademy; right now, I need to wrap my head around **Promises** and async functions. To understand the topic, I had to ask AI for a task to practice it. You can read comments in the new file __promiseHM.js__ to understand it. Even though I failed most of the tasks in the end, it clarified many of the problems I had with Promises, so it was not in vain.
