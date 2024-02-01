@@ -16,7 +16,7 @@ Currently reading **[EloquentJS](https://eloquentjavascript.net/)**; at the end 
 Continuing to study using Codecademy; right now, I need to wrap my head around **Promises** and async functions. To understand the topic, I had to ask AI for a task to practice it. You can read comments in the new file __promiseHM.js__ to understand it. Even though I failed most of the tasks in the end, it clarified many of the problems I had with Promises, so it was not in vain.
 
 ## Update 3 01.2024
-Discovered the concept of __closure__ in JavaScript and realized that despite my extensive learning in JavaScript, I still struggled to comprehend it. This challenge became apparent when attempting to solve LeetCode problems, where closure seemed to be a recurring theme. However, it's never too late to grasp new concepts. The latest update incorporates some hands-on practice with closure. Additionally, I've made the decision to segment my tasks, uploading each homework concept separately for better clarity.
+Discovered the concept of __closure__ in JavaScript and realized that despite my extensive learning in JavaScript, I still struggled to comprehend it. This challenge became apparent when attempting to solve **[LeetCode](https://leetcode.com/)** problems, where closure seemed to be a recurring theme. However, it's never too late to grasp new concepts. The latest update incorporates some hands-on practice with closure. Additionally, I've made the decision to segment my tasks, uploading each homework concept separately for better clarity.
 
 PS: Two days following the completion of tasks related to __closure__ and ongoing reading of **EloquentJS**, I've **FINALLY** understood the concept! ^^
 
@@ -25,5 +25,13 @@ New update includes tasks that were assigned on **[Codewars](https://www.codewar
 
 ## Update 4 01.2024
 - Added new folders **AIGeneratedHW** to clean up repository. 
-- Added **[LeetCode](https://leetcode.com/)** folder not only to track my progress, but also it is great for future feedback and much more easier to write code in VSC.
+- Added **[LeetCode](https://leetcode.com/)** folder not only to track my progress, but also it is great for future reference and it is much more easier to write code in VSC.
 - Completed several tasks in **CodeWars** and **LeetCode** folders.
+
+## Update 5 02.2024
+New month, new update ^^
+- Chapter four of **[EloquentJS](https://eloquentjavascript.net/)** book is finished, in the process of solving the tasks at the end of it.
+    - PS: while doing it learned about new concept __"Nullish coalescing operator (??)""__
+- Completed several of **[LeetCode](https://leetcode.com/)** chalanges.
+- Found new website **[CodingGame](https://www.codingame.com/)** where you can practice code while playing games, but need more time to figure it out ^^.
+- Right now focusing on completing my course at **[Codecademy](https://www.codecademy.com)** so there might be less updates this month.
