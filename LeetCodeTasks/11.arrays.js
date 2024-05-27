@@ -15,6 +15,8 @@ Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,
 
 let height = [1,8,6,2,5,4,8,3,7];
 
+/* my code doesn't work with large arrays :(
+
 let area = (height) => {
     let result = 0;
     for (let i = 0; i < height.length; i++) {
@@ -28,5 +30,27 @@ let area = (height) => {
         }
         return result
     }
+*/
 
-console.log(area(height));
+let maxArea = (height) => {
+    let max = 0;
+    let left = 0;
+    let right = height.length - 1;
+
+    while (left < right) {
+        let minHeight = Math.min(height[left], height[right]);
+        let width = right - left;
+        let area = minHeight * width;
+        max = Math.max(max, area);
+
+        if (height[left] < height[right]) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+
+    return max;
+};
+
+console.log(maxArea(height));
