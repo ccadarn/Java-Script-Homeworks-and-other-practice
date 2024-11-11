@@ -11,18 +11,17 @@ Examples
 */
 
 let find = (numbers) => {
-    // Step 1: Create an object to store counts of each number
-    const counts = numbers.reduce((acc, number) => {
+      // Step 1: Create an object to store counts of each number
+      const counts = numbers.reduce((acc, number) => {
         acc[number] = (acc[number] || 0) + 1;
         return acc;
     }, {});
 
-    //console.log(counts);
-
     // Step 2: Find the key (number) with a count of 1
     for (let number in counts) {
         if (counts[number] === 1) {
-            return number;
+          // converting result to number
+            return Number(number);
         }
     }
     return null;  // Return null if no stray number is found
