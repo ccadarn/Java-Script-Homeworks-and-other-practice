@@ -28,3 +28,9 @@ let checkUpperCase = (string) => {
 console.log(checkUpperCase('Fs'))
 console.log(checkUpperCase('FDDSAAFG'))
 console.log(checkUpperCase('FFREAFAEFlIFSFA'))
+
+/*Shorter version :)
+let checkUpperCase = (string) => {
+    return string.toUpperCase() === string.toString();
+}
+*/
