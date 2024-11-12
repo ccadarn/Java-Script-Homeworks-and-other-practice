@@ -31,6 +31,6 @@ console.log(checkUpperCase('FFREAFAEFlIFSFA'))
 
 /*Shorter version :)
 let checkUpperCase = (string) => {
-    return string.toUpperCase() === string.toString();
+    return string.toUpperCase() === string;
 }
 */
