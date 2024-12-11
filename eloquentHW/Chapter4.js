@@ -168,16 +168,7 @@ console.log(nth(arrayToList([10, 20, 30]), 1));
 */
 
 // Function to build a list structure from an array
-let arrayToList = (array) => {
-    let list = null;
-
-    for (let i = array.length - 1; i >= 0; i--) {
-        list = prepend(array[i], list);
-    }
-
-    return list;
-}
-
+prepend
 // Function to convert a list to an array
 let listToArray = (obj) => {
     let array = [];
