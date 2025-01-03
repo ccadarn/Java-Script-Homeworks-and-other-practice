@@ -37,6 +37,7 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 */
 
 //My Solution (fail)
+/*
 var removeDuplicates = function(nums) {
     let i = 0;
     let newArr = [nums[i]];
@@ -70,3 +71,21 @@ var removeDuplicates2 = function(nums) {
 };
 
 console.log(removeDuplicates([0,0,1,1,1,2,2,3,3,4]));
+*/
+
+var removeDuplicates = function(nums) {
+    let newNum = [];
+    let counter = 0;
+
+    do {
+        if (counter === 0 || nums[counter] !== nums[counter - 1]) {
+            newNum.push(nums[counter]);
+        }
+        counter++;
+    } while (counter < nums.length);
+
+    return newNum;    
+};
+
+console.log(removeDuplicates([0,0,1,1,1,2,2,3,3,4])); // → [0, 1, 2, 3, 4]
+console.log(removeDuplicates([-5,0,1,1,1,2,2,3,3,4])); // → [-5, 0, 1, 2, 3, 4]
