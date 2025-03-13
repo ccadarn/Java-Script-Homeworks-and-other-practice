@@ -3,13 +3,13 @@ Given a number n, draw stairs using the letter "I", n tall and n wide, with the 
 */
 
 function drawStairs(n) {
-    let result = '';
-
-    for(let i=0; i<n; i++){
-        result += " ".repeat(i) + "I\n";
+    let result = "";
+    for (let i = 0; i < n; i++) {
+        result += " ".repeat(i) + "I";
+        if (i < n - 1) result += "\n";
     }
-    console.log(result);
-   }
+    return result;
+}
 
 console.log(drawStairs(3))
-console.log(drawStairs(7))
+console.log(drawStairs(1))
