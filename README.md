@@ -6,7 +6,7 @@ This serves as my training ground, where I periodically upload my homework as I 
 
 I decided to delve into coding in 2023 through **[Codecademy](https://www.codecademy.com)**, and so far, the process has been satisfying with its inevitable highs and lows. I've come to the realization that knowledge without practical application is a futile endeavor.
 
-Hence, I've employed AI to generate homework assignments as a means of reinforcing the new topics I've acquired. This decision came rather belatedly, as I discovered that despite advancing significantly in my course, I now find myself starting anew to establish a solid foundation. This groundwork is essential to facilitate smoother and swifter progress in the future.
+Hence, I've employed AI and other websites to find homework assignments as a means of reinforcing the new topics I've acquired. This decision came rather belatedly, as I discovered that despite advancing significantly in my course, I now find myself starting anew to establish a solid foundation. This groundwork is essential to facilitate smoother and swifter progress in the future.
 
 To be honest, the first week of homework has provided me with a much deeper understanding of JavaScript than I gained in the last six months. Despite having grasped the basics through Codecademy, the lack of practical application made it challenging to retain all that knowledge.
 
@@ -51,3 +51,10 @@ Currently want to complete Odin project but so far the progress is very slow.
 Trying to so start doing homework in JS again...
 
 - Added **[ProjectEuler](https://projecteuler.net/)** folder with new website that provides mathematical problems to try and solve them using JS code.
+
+## Update 8 07.2025
+
+Despite the fact that almost a year passed since my last update, I am still stuck learning JS. I am lacking motivation.
+New job that I found last year is related to techical support and I found that QA feld is where I want to go.
+
+Trying to start doing some projects in the hope that it will make me move forward...
