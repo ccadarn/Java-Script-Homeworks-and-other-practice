@@ -1,3 +1,7 @@
 {
-    "vscode-edge-devtools.headless": false
+    "vscode-edge-devtools.headless": false,
+    "cSpell.words": [
+        "LVIII",
+        "MCMXCIV"
+    ]
 }
