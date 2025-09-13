@@ -125,7 +125,7 @@ processDataPromise('Hello World')
   .then((success) => console.log(success))
   .catch((error) => console.log(error))
 
-//------------ practice ------------
+//------------ practice - chained promises------------
 let capitalize = (string) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
