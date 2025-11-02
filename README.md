@@ -51,10 +51,3 @@ Currently want to complete Odin project but so far the progress is very slow.
 Trying to so start doing homework in JS again...
 
 - Added **[ProjectEuler](https://projecteuler.net/)** folder with new website that provides mathematical problems to try and solve them using JS code.
-
-## Update 8 07.2025
-
-Despite the fact that almost a year passed since my last update, I am still stuck learning JS. I am lacking motivation.
-New job that I found last year is related to techical support and I found that QA feld is where I want to go.
-
-Trying to start doing some projects in the hope that it will make me move forward...
