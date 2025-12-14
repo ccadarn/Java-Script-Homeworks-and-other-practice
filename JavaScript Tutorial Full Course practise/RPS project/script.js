@@ -50,10 +50,27 @@ let playGame = (playerMove) => {
     let winner = determineWinner(playerMove, computerMove);
     let message = resultsParagraph.innerText = `You picked ${playerMove}, computer picked ${computerMove}, ${winner}`;
 
-    return message; 
+    //increment score
+    winner === 'Computer wins!' ? computerWin += 1 : (winner === 'You win!' ? youWin += 1 : draw += 1);
+    winDisplay.innerText = youWin;
+    loseDisplay.innerText = computerWin;
+    drawDisplay.innerText = draw;
+
+    return message;
 }
 
-//getting buttons
+//Score recording
+let youWin = 0;
+let computerWin = 0;
+let draw = 0;
+
+//getting score from HTML
+const winScoreDisplay = document.getElementById('win-score');
+const loseScoreDisplay = document.getElementById('lose-score');
+const drawScoreDisplay = document.getElementById('draw-score');
+
+
+//getting buttons from HTML
 const rockButton = document.getElementById('rock');
 const paperButton = document.getElementById('paper');
 const scissorsButton = document.getElementById('scissors');
@@ -63,5 +80,11 @@ rockButton.addEventListener('click', () => {playGame('Rock')});
 paperButton.addEventListener('click', () => {playGame('Paper')});
 scissorsButton.addEventListener('click', () => {playGame('Scissors')});
 
-//result display
+//result display (this code is loaded first when page loads)
+//game result
 const resultsParagraph = document.getElementById('game-result');
+
+//score
+const winDisplay = document.getElementById('win-score');
+const loseDisplay = document.getElementById('lose-score');
+const drawDisplay = document.getElementById('draw-score');
