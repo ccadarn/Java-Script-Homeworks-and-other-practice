@@ -1,5 +1,59 @@
+// ---- starting variables ----
+//Application state
+
+let score;
+
+//retrieve score from local storage
+let storedScoreString = localStorage.getItem('gameScore');
+let parsedScore = JSON.parse(storedScoreString); 
+
+//checking if there is a saved data locally to use
+if (parsedScore) {
+    score = parsedScore;
+} else {
+    score = {
+        userWin: 0,
+        computerWin: 0,
+        draw: 0,
+    }
+}
+
+//display score after checking object value
+messageDisplay();
+
+//DOM elements
+//getting starting results from browser, assigning them to variables
+const winDisplay = document.getElementById('win-score');
+const loseDisplay = document.getElementById('lose-score');
+const drawDisplay = document.getElementById('draw-score');
+
+//getting message paragraph from browser, assigning it to variable
+const messageParagraph = document.getElementById('game-message');
+
+//getting buttons from browser
+const rockButton = document.getElementById('rock');
+const paperButton = document.getElementById('paper');
+const scissorsButton = document.getElementById('scissors');
+
+const resetButton = document.getElementById('reset');
+
+//event listeners for buttons
+rockButton.addEventListener('click', () => {playGame('Rock')});
+paperButton.addEventListener('click', () => {playGame('Paper')});
+scissorsButton.addEventListener('click', () => {playGame('Scissors')});
+
+resetButton.addEventListener('click', () => {reset()})
+
+//key mapping
+const winnerToKeyMap = {
+    'You win!': 'userWin',
+    'Computer wins!': 'computerWin',
+    'Its a draw!': 'draw',
+};
+
+
 //Game logic
-// Get Computer move
+// Get Computer move code
 let getComputerMove  = () => {
 let randomNum = Math.random();
     let computerChoice = '';
@@ -14,7 +68,7 @@ let randomNum = Math.random();
 return computerChoice;
 }
 
-//determine winner
+//determine winner code
 let determineWinner = (getHumanMove, getComputerMove) => {
 
     if(getComputerMove === 'Rock'){
@@ -44,47 +98,50 @@ let determineWinner = (getHumanMove, getComputerMove) => {
     }  
 }
 
+//message code
+let messageDisplay = () => {
+    winDisplay.innerText = score.userWin;
+    loseDisplay.innerText = score.computerWin;
+    drawDisplay.innerText = score.draw;
+}
+
 //result code
 let playGame = (playerMove) => {
     let computerMove = getComputerMove();
     let winner = determineWinner(playerMove, computerMove);
-    let message = resultsParagraph.innerText = `You picked ${playerMove}, computer picked ${computerMove}, ${winner}`;
+
+    //display result message in browser
+    let resultMessage = messageParagraph.innerText = `You picked ${playerMove}, computer picked ${computerMove}, ${winner}`;
 
     //increment score
-    winner === 'Computer wins!' ? computerWin += 1 : (winner === 'You win!' ? youWin += 1 : draw += 1);
-    winDisplay.innerText = youWin;
-    loseDisplay.innerText = computerWin;
-    drawDisplay.innerText = draw;
+    let keyToIncrement = winnerToKeyMap[winner];
+    score[keyToIncrement] += 1;
 
-    return message;
+    //after score was incremented display new score in browser
+    messageDisplay()
+
+    //stringify score and store to local storage
+    let scoreString = JSON.stringify(score);
+    localStorage.setItem('gameScore', scoreString);
+
+    return resultMessage;
 }
 
-//Score recording
-let youWin = 0;
-let computerWin = 0;
-let draw = 0;
+//reset code
+let reset = () => {
+    score.userWin = 0;
+    score.computerWin = 0;
+    score.draw = 0;
 
-//getting score from HTML
-const winScoreDisplay = document.getElementById('win-score');
-const loseScoreDisplay = document.getElementById('lose-score');
-const drawScoreDisplay = document.getElementById('draw-score');
+    //after score = 0, display it in browser
+    messageDisplay()
 
+    //stringify score and store to local storage
+    let scoreString = JSON.stringify(score);
+    localStorage.setItem('gameScore', scoreString);
 
-//getting buttons from HTML
-const rockButton = document.getElementById('rock');
-const paperButton = document.getElementById('paper');
-const scissorsButton = document.getElementById('scissors');
+    //new message after reset
+    let resetMessage = messageParagraph.innerText = `Score was reset! Choose and click a button to start the game!`;
 
-//event listeners
-rockButton.addEventListener('click', () => {playGame('Rock')});
-paperButton.addEventListener('click', () => {playGame('Paper')});
-scissorsButton.addEventListener('click', () => {playGame('Scissors')});
-
-//result display (this code is loaded first when page loads)
-//game result
-const resultsParagraph = document.getElementById('game-result');
-
-//score
-const winDisplay = document.getElementById('win-score');
-const loseDisplay = document.getElementById('lose-score');
-const drawDisplay = document.getElementById('draw-score');
+    return resetMessage;
+}
