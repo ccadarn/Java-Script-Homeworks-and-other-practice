@@ -18,8 +18,19 @@ if (parsedScore) {
     }
 }
 
-//display score after checking object value
-messageDisplay();
+//Image display map
+const moveDisplayMap = {
+    'Rock': 'Rock ✊',
+    'Paper': 'Paper 📜',
+    'Scissors': 'Scissors ✂️'
+};
+
+//key mapping
+const winnerToKeyMap = {
+    'You win!': 'userWin',
+    'Computer wins!': 'computerWin',
+    'Its a draw!': 'draw',
+};
 
 //DOM elements
 //getting starting results from browser, assigning them to variables
@@ -44,14 +55,6 @@ scissorsButton.addEventListener('click', () => {playGame('Scissors')});
 
 resetButton.addEventListener('click', () => {reset()})
 
-//key mapping
-const winnerToKeyMap = {
-    'You win!': 'userWin',
-    'Computer wins!': 'computerWin',
-    'Its a draw!': 'draw',
-};
-
-
 //Game logic
 // Get Computer move code
 let getComputerMove  = () => {
@@ -70,32 +73,19 @@ return computerChoice;
 
 //determine winner code
 let determineWinner = (getHumanMove, getComputerMove) => {
+    const winConditions = {
+    'Rock': 'Scissors',
+    'Paper': 'Rock',
+    'Scissors': 'Paper'
+    };
 
-    if(getComputerMove === 'Rock'){
-        if(getHumanMove === 'Scissors'){
-            return 'Computer wins!';
-        } else if(getHumanMove === 'Paper'){
-            return 'You win!';
-        } else if (getHumanMove === 'Rock'){
-            return 'Its a draw!'
-        }
-    } else if(getComputerMove === 'Paper'){
-        if(getHumanMove === 'Rock'){
-            return 'Computer wins!';
-        } else if(getHumanMove === 'Scissors'){
-            return 'You win!';
-        } else if (getHumanMove === 'Paper'){
-            return 'Its a draw!'
-        }
+    if(getHumanMove === getComputerMove){
+        return 'Its a draw!'
+    } else if (winConditions[getHumanMove] === getComputerMove){
+        return 'You win!';
     } else {
-        if(getHumanMove === 'Paper'){
-            return 'Computer wins!';
-        } else if(getHumanMove === 'Rock'){
-            return 'You win!';
-        } else if (getHumanMove === 'Scissors'){
-            return 'Its a draw!'
-        }
-    }  
+        return 'Computer wins!';
+    }
 }
 
 //message code
@@ -111,7 +101,7 @@ let playGame = (playerMove) => {
     let winner = determineWinner(playerMove, computerMove);
 
     //display result message in browser
-    let resultMessage = messageParagraph.innerText = `You picked ${playerMove}, computer picked ${computerMove}, ${winner}`;
+    let resultMessage = messageParagraph.innerText = `You picked ${moveDisplayMap[playerMove]}, computer picked ${moveDisplayMap[computerMove]}, ${winner}`;
 
     //increment score
     let keyToIncrement = winnerToKeyMap[winner];
@@ -145,3 +135,6 @@ let reset = () => {
 
     return resetMessage;
 }
+
+//display score after checking object value
+messageDisplay();
