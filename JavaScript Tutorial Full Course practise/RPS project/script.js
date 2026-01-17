@@ -3,21 +3,6 @@
 
 let score;
 
-//retrieve score from local storage
-let storedScoreString = localStorage.getItem('gameScore');
-let parsedScore = JSON.parse(storedScoreString); 
-
-//checking if there is a saved data locally to use
-if (parsedScore) {
-    score = parsedScore;
-} else {
-    score = {
-        userWin: 0,
-        computerWin: 0,
-        draw: 0,
-    }
-}
-
 //Image display map
 const moveDisplayMap = {
     'Rock': 'Rock ✊',
@@ -48,12 +33,32 @@ const scissorsButton = document.getElementById('scissors');
 
 const resetButton = document.getElementById('reset');
 
-//event listeners for buttons
+//event listeners for browser buttons
 rockButton.addEventListener('click', () => {playGame('Rock')});
 paperButton.addEventListener('click', () => {playGame('Paper')});
 scissorsButton.addEventListener('click', () => {playGame('Scissors')});
 
 resetButton.addEventListener('click', () => {reset()})
+
+//event listeners for keyboard buttons (Left, Down, Right for moves and Up for reset)
+document.body.addEventListener('keydown', (event) => {
+    if(event.key ==='ArrowLeft'){
+        playGame('Rock');
+    } else if(event.key === 'ArrowDown'){
+        playGame('Paper');
+    } else if(event.key === 'ArrowRight'){
+        playGame('Scissors');
+    } else if(event.key === 'ArrowUp'){
+        reset();
+    }
+});
+
+//message code
+let messageDisplay = () => {
+    winDisplay.innerText = score.userWin;
+    loseDisplay.innerText = score.computerWin;
+    drawDisplay.innerText = score.draw;
+}
 
 //Game logic
 // Get Computer move code
@@ -88,33 +93,36 @@ let determineWinner = (getHumanMove, getComputerMove) => {
     }
 }
 
-//message code
-let messageDisplay = () => {
-    winDisplay.innerText = score.userWin;
-    loseDisplay.innerText = score.computerWin;
-    drawDisplay.innerText = score.draw;
-}
+//helper function to handle message display in browser and score storage in functions below
+let updateScoreAndStorage = () => {
+    messageDisplay();
+    
+    let scoreString = JSON.stringify(score);
+    localStorage.setItem('gameScore', scoreString);
+};
+
+//helper function to handle message update in DOM
+let updateMessageDisplay = (text) => {
+        messageParagraph.innerText = text;
+};
 
 //result code
 let playGame = (playerMove) => {
     let computerMove = getComputerMove();
     let winner = determineWinner(playerMove, computerMove);
 
-    //display result message in browser
-    let resultMessage = messageParagraph.innerText = `You picked ${moveDisplayMap[playerMove]}, computer picked ${moveDisplayMap[computerMove]}, ${winner}`;
-
     //increment score
     let keyToIncrement = winnerToKeyMap[winner];
     score[keyToIncrement] += 1;
 
-    //after score was incremented display new score in browser
-    messageDisplay()
+    //displaying new score + store it
+    updateScoreAndStorage()    
 
-    //stringify score and store to local storage
-    let scoreString = JSON.stringify(score);
-    localStorage.setItem('gameScore', scoreString);
+    //result message
+    let resultMessage = `You picked ${moveDisplayMap[playerMove]}, computer picked ${moveDisplayMap[computerMove]}, ${winner}`;
 
-    return resultMessage;
+    //using helper function to display result text in browser
+    updateMessageDisplay(resultMessage);
 }
 
 //reset code
@@ -123,18 +131,36 @@ let reset = () => {
     score.computerWin = 0;
     score.draw = 0;
 
-    //after score = 0, display it in browser
-    messageDisplay()
+    //after score is 0, display it + store
+    updateScoreAndStorage()
 
-    //stringify score and store to local storage
-    let scoreString = JSON.stringify(score);
-    localStorage.setItem('gameScore', scoreString);
+    //new result message after reset
+    let resetMessage = `Score was reset! Choose and click a button to start the game!`;
 
-    //new message after reset
-    let resetMessage = messageParagraph.innerText = `Score was reset! Choose and click a button to start the game!`;
-
-    return resetMessage;
+    //using helper function to display result text in browser
+    updateMessageDisplay(resetMessage);
 }
 
-//display score after checking object value
-messageDisplay();
+//function to initialize starting settings
+let gameStart = () => {
+    //retrieve score from local storage
+    let storedScoreString = localStorage.getItem('gameScore');
+    let parsedScore = JSON.parse(storedScoreString); 
+
+    //checking if there is a saved data locally to use
+    if (parsedScore) {
+        score = parsedScore;
+    } else {
+        score = {
+            userWin: 0,
+            computerWin: 0,
+            draw: 0,
+        }
+    }
+
+    //display score after checking object values
+    messageDisplay();
+}
+
+//running function to start the game
+gameStart();
